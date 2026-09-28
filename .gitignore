@@ -1,0 +1,20 @@
+# Logs de execução da rotina na VM
+deploy/logs/
+
+# Overrides pessoais de configuração do Claude Code (não versionar)
+.claude/settings.local.json
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Segredos (nunca versionar)
+.env
+
+# Ambiente virtual e caches Python
+venv/
+__pycache__/
+*.pyc
+
+# Logs da execução na VM
+logs/

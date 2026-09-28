@@ -1,0 +1,57 @@
+# Configuração central do sistema de agentes de conteúdo para LinkedIn — LM for Business
+
+project:
+  name: content-agents
+  language: pt-BR
+  channel: linkedin
+  post_voice: primeira_pessoa   # posts são publicados pelo próprio Leandro Miranda; nunca terceira pessoa
+  default_requester: "Leandro Miranda"   # solicitante padrão do briefing, salvo indicação explícita em contrário
+
+workflow:
+  entrypoint: workflows/create-linkedin-post.md
+  max_reproval_loops_before_escalation: 3
+
+agents:
+  strategist:
+    doc: agents/strategist.md
+    prompt: prompts/strategist.md
+    knowledge:
+      - knowledge/brand.md
+      - knowledge/personas.md
+      - knowledge/products.md
+      - knowledge/linkedin-best-practices.md
+    output_template: templates/briefing.md
+
+  writer:
+    doc: agents/writer.md
+    prompt: prompts/writer.md
+    knowledge:
+      - knowledge/brand.md
+      - knowledge/editorial-guidelines.md
+      - knowledge/linkedin-best-practices.md
+    output_template: templates/linkedin-post.md
+
+  reviewer:
+    doc: agents/reviewer.md
+    prompt: prompts/reviewer.md
+    knowledge:
+      - knowledge/brand.md
+      - knowledge/editorial-guidelines.md
+      - knowledge/linkedin-best-practices.md
+    output_states: [APROVADO, REPROVADO]
+
+  publisher:
+    doc: agents/publisher.md
+    prompt: prompts/publisher.md
+    knowledge:
+      - knowledge/linkedin-best-practices.md
+    output_template: templates/email.html
+    requires_upstream_status: APROVADO
+
+linkedin_limits:
+  hook_visible_chars: 200
+  recommended_min_chars: 900
+  recommended_max_chars: 1500
+  hashtags_min: 3
+  hashtags_max: 5
+  mandatory_hashtag: "#LMforBusiness"

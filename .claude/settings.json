@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "mcp__0598cb68-12a7-4fe1-aa99-4708d2b71ac9__create_draft"
+    ]
+  }
+}

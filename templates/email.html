@@ -1,0 +1,18 @@
+<!--
+Template de e-mail usado pelo Publicador para enviar o conteúdo aprovado ao
+solicitante. Placeholders entre {{ }} devem ser substituídos pelo Publicador.
+-->
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #222222; line-height: 1.5; max-width: 640px;">
+  <p>Olá, {{nome_solicitante}}!</p>
+
+  <p>Segue o conteúdo de LinkedIn aprovado sobre <strong>"{{tema}}"</strong>, pronto para publicação.</p>
+
+  <div style="background:#f7f5f3; border-left: 3px solid #3b2a20; padding: 16px; margin: 16px 0; white-space: pre-wrap;">{{post_formatado}}</div>
+
+  <p><strong>Contagem de caracteres:</strong> {{contagem_caracteres}}</p>
+  <p><strong>Hashtags:</strong> {{hashtags}}</p>
+
+  <p>Qualquer ajuste, é só responder este e-mail.</p>
+
+  <p>Um abraço,<br>LM for Business</p>
+</div>
